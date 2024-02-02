@@ -83,6 +83,12 @@ button:hover {
 
 }
 
+#reports button {
+  /* Adjust the size for the "Download PDF" button inside the "Reports" tab */
+  width: 150px; /* Set a specific width for the "Download PDF" button */
+  height: 40px; /* Set a specific height for the "Download PDF" button */
+}
+
 .content {
   flex: 1;
   padding: 20px;
@@ -160,3 +166,11 @@ h3 {
 
 }
 
+#pdfLink {
+  display: block;
+  margin-top: 10px;
+}
+
+#pdfLink:hover {
+  color: #FF8C00;
+}

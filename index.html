@@ -25,6 +25,8 @@
       <button onclick="showSection('objectives')">OBJECTIVES</button>
       <button onclick="showSection('skills')">SKILLS</button>
       <button onclick="showSection('education')">EDUCATION</button>
+      <button onclick="openReportsPDF()">REPORTS</button>
+
       <!-- Add more buttons for other sections -->
     </div>
 
@@ -111,6 +113,18 @@
            </ul>
         </div>
         <!-- Add more divs for other sections -->
+
+        <div id="reports" class="section">
+          <h2>Reports</h2>
+          <p>Click the link to view or download the report:</p>
+          <a id="pdfLink" href="#" target="_blank">Daily Attendance Summary</a>
+          <button onclick="downloadPDF ()">Download PDF</button>
+        </div>
+
+
+
+
+
       </div>
     </div>
   </div>

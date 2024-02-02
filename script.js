@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
   // Set "HOME" as the default section on page load
-  showSection('home'); // Change 'contacts' to 'home'
+  showSection('home');
 
   // Function to show a section
   function showSection(sectionId) {
@@ -10,6 +10,14 @@ document.addEventListener("DOMContentLoaded", function() {
     const selectedSection = document.getElementById(sectionId);
     if (selectedSection) {
       selectedSection.style.display = 'block';
+    }
+
+    // Additional logic to handle the PDF link
+    if (sectionId === 'reports') {
+      const pdfLink = document.getElementById('pdfLink');
+      // Replace the following URL with the actual URL of your PDF
+      const pdfUrl = 'DAS-31G6_2023-2024 - 22.pdf';
+      pdfLink.setAttribute('href', pdfUrl);
     }
   }
 
@@ -21,24 +29,37 @@ document.addEventListener("DOMContentLoaded", function() {
       showSection(sectionId);
     });
   });
+
+  // Function to highlight and reset the name color
+  function highlightName(isHighlight) {
+    const color = isHighlight ? '#331a00' : '';
+    document.querySelector('.home-text').style.color = color;
+  }
+
+  // Event listeners for name hover
+  const profileName = document.querySelector('.home-text');
+  profileName.addEventListener('mouseover', function() {
+    highlightName(true);
+  });
+
+  profileName.addEventListener('mouseout', function() {
+    highlightName(false);
+  });
+
+  // Function to download the PDF
+  function downloadPDF() {
+    const pdfLink = document.getElementById('pdfLink');
+    const pdfUrl = pdfLink.getAttribute('href');
+    
+    // Check if the PDF URL is not empty
+    if (pdfUrl) {
+      window.open(pdfUrl, '_blank');
+    } else {
+      console.error('PDF file path is empty or invalid.');
+    }
+  }
+
+  // Event listener for the "Download PDF" button
+  const downloadButton = document.querySelector('#reports button');
+  downloadButton.addEventListener('click', downloadPDF);
 });
-
-// Function to highlight the name on hover
-function highlightName() {
-  document.querySelector('.exclude-text').style.color = '#FF8C00';
-}
-
-// Function to reset the name color on mouseout
-function resetName() {
-  document.querySelector('.exclude-text').style.color = ''; // Reset to the default color
-}
-
- // JavaScript functions to highlight and reset the name
-    function highlightName() {
-      document.querySelector('.home-text').style.color = '#331a00';
-    }
-
-    function resetName() {
-      document.querySelector('.home-text').style.color = ''; // Reset to default color
-    }
-
